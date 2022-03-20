@@ -1,8 +1,8 @@
 <header class="header flex justify-content-between">
-  <img class="header__logo" src="assets/logo.jpg">
+  <img class="header__logo" src="assets/logo.jpg" routerLink="/">
 
   <div class="header__menu my-auto">
     <button type="button" class="p-button-text" pButton icon="pi pi-bars" (click)="menu.toggle($event)"></button>
-    <p-menu #menu [popup]="true" [model]="[]"></p-menu>
+    <p-menu #menu [popup]="true" [model]="menuItems"></p-menu>
   </div>
 </header>
