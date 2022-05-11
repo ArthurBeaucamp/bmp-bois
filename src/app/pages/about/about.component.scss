@@ -1,0 +1,26 @@
+@import 'variables';
+
+.order {
+  color: $main-color;
+  text-align: justify;
+  padding: $main-spacing;
+
+  &__title {
+    font-size: $title-size;
+    font-weight: bold;
+    text-align: center;
+    margin-bottom: $main-spacing;
+  }
+
+  &__profile {
+    float: left;
+    width: 150px;
+    height: 150px;
+    border-radius: 100%;
+    margin: 0 $main-spacing $main-spacing 0;
+  }
+
+  &__text {
+    font-size: $text-size;
+  }
+}
