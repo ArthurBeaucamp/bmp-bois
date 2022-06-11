@@ -1,0 +1,40 @@
+@import 'variables';
+
+.footer {
+  background: $main-color;
+  height: $footer-height;
+  display: flex;
+  justify-content: space-between;
+
+  &__info {
+    color: $secondary-footer-color;
+    margin: auto $main-spacing;
+    font-size: $footer-size;
+
+    a {
+      color: $secondary-footer-color;
+
+      &:hover {
+        color: $white;
+      }
+    }
+  }
+
+  &__icons {
+    display: flex;
+
+    a {
+      margin: auto;
+      height: 30px;
+      width: 30px;
+      color: transparent;
+      margin-right: $main-spacing / 1.5;
+
+      button {
+        color: $white;
+        width: 100%;
+        height: 100%;
+      }
+    }
+  }
+}

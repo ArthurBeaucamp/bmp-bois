@@ -10,6 +10,7 @@ import { MenuModule } from 'primeng/menu';
 import { NgModule } from '@angular/core';
 import { OrderComponent } from './pages/order/order.component';
 import { PortfolioComponent } from './pages/portfolio/portfolio.component';
+import { FooterComponent } from './components/footer/footer.component';
 
 @NgModule({
   declarations: [
@@ -18,7 +19,8 @@ import { PortfolioComponent } from './pages/portfolio/portfolio.component';
     HeaderComponent,
     AboutComponent,
     OrderComponent,
-    PortfolioComponent
+    PortfolioComponent,
+    FooterComponent
   ],
   imports: [
     BrowserModule,

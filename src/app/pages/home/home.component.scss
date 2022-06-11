@@ -6,6 +6,7 @@
   width: 100%;
   position: relative;
   overflow: hidden;
+  height: calc(100vh - #{$header-height} - #{$footer-height});
 
   &:before {
     content: ' ';

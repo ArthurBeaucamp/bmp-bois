@@ -4,6 +4,8 @@
   color: $main-color;
   text-align: justify;
   padding: $main-spacing;
+  overflow: auto;
+  height: calc(100vh - #{$header-height} - #{$footer-height});
 
   &__title {
     font-size: $title-size;
