@@ -1,0 +1,16 @@
+@import 'variables';
+
+.portfolio {
+  color: $main-color;
+  text-align: justify;
+  padding: $main-spacing;
+  overflow: auto;
+  height: calc(100vh - #{$header-height} - #{$footer-height});
+
+  &__title {
+    font-size: $title-size;
+    font-weight: bold;
+    text-align: center;
+    margin-bottom: $main-spacing;
+  }
+}

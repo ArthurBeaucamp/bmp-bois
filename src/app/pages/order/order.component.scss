@@ -16,11 +16,14 @@
 
   &__text {
     font-size: $text-size;
+    margin-bottom: $main-spacing;
   }
 
   &__form {
     margin: $main-spacing $main-spacing 0 $main-spacing;
     position: relative;
+    max-width: 500px;
+    margin: auto;
 
     &__label {
       font-size: $text-size;
