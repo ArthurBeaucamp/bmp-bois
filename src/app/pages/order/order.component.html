@@ -1,1 +1,102 @@
-<p>order works!</p>
+<div class="order">
+  <h1 class="order__title">Commande personnalisée</h1>
+
+  <p class="order__text">
+    Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vestibulum pellentesque urna a
+    sagittis suscipit. Vestibulum at dictum.Ut quis nisl ullamcorper, euismod leo non, euismod mauris. Maecenas enim</p>
+
+  <form id="contact-form" class="order__form" [formGroup]="orderForm" (ngSubmit)="sendEmail()">
+    <label class="order__form__label" for="first-name">Prénom *</label>
+    <input class="order__form__input" [ngClass]="{
+      'order__form__input--error': (orderForm.get('firstName')?.touched || isSubmitted) && orderForm.get('firstName')?.errors?.['required']
+    }" id="first-name" type="text" formControlName="firstName" name="firstName" pInputText>
+    <p *ngIf="(orderForm.get('firstName')?.touched || isSubmitted) && orderForm.get('firstName')?.errors?.['required']"
+      class="p-error order__form__error">Ce champ est obligatoire
+    </p>
+
+    <label class="order__form__label" for="last-name">Nom *</label>
+    <input class="order__form__input" [ngClass]="{
+      'order__form__input--error': (orderForm.get('lastName')?.touched || isSubmitted) && orderForm.get('lastName')?.errors?.['required']
+    }" id="last-name" type="text" formControlName="lastName" name="lastName" pInputText>
+    <p *ngIf="(orderForm.get('lastName')?.touched || isSubmitted) && orderForm.get('lastName')?.errors?.['required']"
+      class="p-error order__form__error">
+      Ce champ est obligatoire
+    </p>
+
+    <label class="order__form__label" for="mail">Mail *</label>
+    <input class="order__form__input" [ngClass]="{
+      'order__form__input--error': (orderForm.get('mail')?.touched || isSubmitted) && (orderForm.get('mail')?.errors?.['required'] || orderForm.get('mail')?.errors?.['email'])
+    }" id="mail" type="email" formControlName="mail" name="mail" pInputText>
+    <p *ngIf="(orderForm.get('mail')?.touched || isSubmitted) && orderForm.get('mail')?.errors?.['required']"
+      class="p-error order__form__error">Ce
+      champ est obligatoire
+    </p>
+    <p *ngIf="(orderForm.get('mail')?.touched || isSubmitted) && orderForm.get('mail')?.errors?.['email']"
+      class="p-error order__form__error">
+      Doit être au format mail
+    </p>
+
+    <label class="order__form__label" for="address-number-and-street">N° et nom de rue *</label>
+    <input class="order__form__input" [ngClass]="{
+      'order__form__input--error': (orderForm.get('addressNumberAndStreet')?.touched || isSubmitted) && orderForm.get('addressNumberAndStreet')?.errors?.['required']
+    }" id="address-number-and-street" type="text" formControlName="addressNumberAndStreet"
+      name="addressNumberAndStreet" pInputText>
+    <p *ngIf="(orderForm.get('addressNumberAndStreet')?.touched || isSubmitted) && orderForm.get('addressNumberAndStreet')?.errors?.['required']"
+      class="p-error order__form__error">Ce champ est obligatoire
+    </p>
+
+    <label class="order__form__label">Ville *</label>
+    <input class="order__form__input" [ngClass]="{
+      'order__form__input--error': (orderForm.get('addressCity')?.touched || isSubmitted) && orderForm.get('addressCity')?.errors?.['required']
+    }" for="address-city" id="address-city" type="text" formControlName="addressCity" name="addressCity" pInputText>
+    <p *ngIf="(orderForm.get('addressCity')?.touched || isSubmitted) && orderForm.get('addressCity')?.errors?.['required']"
+      class="p-error order__form__error">Ce champ est obligatoire
+    </p>
+
+    <label class="order__form__label" for="address-postal-code">Code postal *</label>
+    <input class="order__form__input" [ngClass]="{
+      'order__form__input--error': (orderForm.get('addressPostalCode')?.touched || isSubmitted) && orderForm.get('addressPostalCode')?.errors?.['required']
+    }" id="address-postal-code" type="text" formControlName="addressPostalCode" name="addressPostalCode" pInputText>
+    <p *ngIf="(orderForm.get('addressPostalCode')?.touched || isSubmitted) && orderForm.get('addressPostalCode')?.errors?.['required']"
+      class="p-error order__form__error">Ce champ est obligatoire
+    </p>
+
+    <label class="order__form__label" for="address-country">France *</label>
+    <input class="order__form__input" [ngClass]="{
+      'order__form__input--error': (orderForm.get('addressCountry')?.touched || isSubmitted) && orderForm.get('addressCountry')?.errors?.['required']
+    }" id="address-country" type="text" formControlName="addressCountry" name="addressCountry" pInputText>
+    <p *ngIf="(orderForm.get('addressCountry')?.touched || isSubmitted) && orderForm.get('addressCountry')?.errors?.['required']"
+      class="p-error order__form__error">Ce champ est obligatoire
+    </p>
+
+    <label class="order__form__label">Budget *</label>
+    <div class="order__form__input" *ngFor="let level of budgetLevels">
+      <input type="radio" [id]="level.key" name="budget" [value]="level.label" formControlName="budget">
+      <label class="order__form__input__radio-label" [for]="level.key">{{ level.label }}</label>
+    </div>
+    <p *ngIf="(orderForm.get('budget')?.touched || isSubmitted) && orderForm.get('budget')?.errors?.['required']"
+      class="p-error order__form__error">Ce
+      champ est obligatoire
+    </p>
+
+    <label class="order__form__label" for="message">Message *</label>
+    <textarea formControlName="message" class="order__form__input" [ngClass]="{
+      'order__form__input--error': (orderForm.get('message')?.touched || isSubmitted) && orderForm.get('message')?.errors?.['required']
+    }" rows="5" cols="30" id="message" name="message" pInputTextarea></textarea>
+    <p *ngIf="(orderForm.get('message')?.touched || isSubmitted) && orderForm.get('message')?.errors?.['required']"
+      class="p-error order__form__error">Ce
+      champ est obligatoire
+    </p>
+
+    <div class="order__form__submit">
+      <button *ngIf="!isLoading" class="main-button" type="submit" label="Envoyer" pButton></button>
+
+      <div *ngIf="isLoading" class="lds-ring">
+        <div></div>
+        <div></div>
+        <div></div>
+        <div></div>
+      </div>
+    </div>
+  </form>
+</div>

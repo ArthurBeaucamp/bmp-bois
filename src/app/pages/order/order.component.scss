@@ -1,0 +1,106 @@
+@import 'variables';
+
+.order {
+  color: $main-color;
+  text-align: justify;
+  padding: $main-spacing;
+  overflow: auto;
+  height: calc(100vh - #{$header-height} - #{$footer-height});
+
+  &__title {
+    font-size: $title-size;
+    font-weight: bold;
+    text-align: center;
+    margin-bottom: $main-spacing;
+  }
+
+  &__text {
+    font-size: $text-size;
+  }
+
+  &__form {
+    margin: $main-spacing $main-spacing 0 $main-spacing;
+    position: relative;
+
+    &__label {
+      font-size: $text-size;
+      display: block;
+      width: 100%;
+
+      margin-bottom: $main-spacing / 2;
+    }
+
+    &__input {
+      margin-bottom: $main-spacing / 2;
+
+      &__radio-label {
+        margin-left: $main-spacing/ 2;
+        font-style: italic;
+      }
+
+      &--error {
+        border-color: $error-color;
+      }
+    }
+
+    &__input[type='text'],
+    &__input[type='email'] {
+      width: 100%;
+    }
+
+    textarea {
+      resize: vertical;
+      width: 100%;
+      min-height: 4rem;
+    }
+
+    &__error {
+      margin-bottom: $main-spacing / 2;
+    }
+
+    &__submit {
+      display: flex;
+
+      button[type='submit'] {
+        margin: auto;
+      }
+
+      .lds-ring {
+        display: inline-block;
+        position: relative;
+        margin: auto;
+        width: 50px;
+        height: 50px;
+      }
+      .lds-ring div {
+        box-sizing: border-box;
+        display: block;
+        position: absolute;
+        width: 34px;
+        height: 34px;
+        margin: 8px;
+        border: 5px solid $main-color;
+        border-radius: 50%;
+        animation: lds-ring 1.2s cubic-bezier(0.5, 0, 0.5, 1) infinite;
+        border-color: $main-color transparent transparent transparent;
+      }
+      .lds-ring div:nth-child(1) {
+        animation-delay: -0.45s;
+      }
+      .lds-ring div:nth-child(2) {
+        animation-delay: -0.3s;
+      }
+      .lds-ring div:nth-child(3) {
+        animation-delay: -0.15s;
+      }
+      @keyframes lds-ring {
+        0% {
+          transform: rotate(0deg);
+        }
+        100% {
+          transform: rotate(360deg);
+        }
+      }
+    }
+  }
+}

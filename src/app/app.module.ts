@@ -4,13 +4,17 @@ import { AppRoutingModule } from './app-routing.module';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { BrowserModule } from '@angular/platform-browser';
 import { ButtonModule } from 'primeng/button';
+import { FooterComponent } from './components/footer/footer.component';
 import { HeaderComponent } from './components/header/header.component';
 import { HomeComponent } from './pages/home/home.component';
+import { InputTextModule } from 'primeng/inputtext';
 import { MenuModule } from 'primeng/menu';
+import { MessageService } from 'primeng/api';
 import { NgModule } from '@angular/core';
 import { OrderComponent } from './pages/order/order.component';
 import { PortfolioComponent } from './pages/portfolio/portfolio.component';
-import { FooterComponent } from './components/footer/footer.component';
+import { ReactiveFormsModule } from '@angular/forms';
+import { ToastModule } from 'primeng/toast';
 
 @NgModule({
   declarations: [
@@ -27,9 +31,12 @@ import { FooterComponent } from './components/footer/footer.component';
     AppRoutingModule,
     MenuModule,
     ButtonModule,
-    BrowserAnimationsModule
+    BrowserAnimationsModule,
+    ReactiveFormsModule,
+    InputTextModule,
+    ToastModule
   ],
-  providers: [],
+  providers: [MessageService],
   bootstrap: [AppComponent]
 })
 export class AppModule {}
